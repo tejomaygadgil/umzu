@@ -3,13 +3,13 @@
 
 <head>
   <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wozu</title>
 </head>
 
 <body>
   <label for="state" style="float:right">
-    State:&nbsp; 
+    State:&nbsp;
     <select id="state_select" name="state_select" style="float:right" onchange="updateState()">
       <option> Want to do </option>
       <option> Will do </option>
@@ -20,8 +20,8 @@
   </label>
   <br></br>
 
-        <div id="node"></div>
-        <div id="state"></div>
+  <div id="node"></div>
+  <div id="state"></div>
 
   Here is one mermaid diagram:
   <pre class="mermaid">
@@ -31,11 +31,17 @@
             B --> D[Server2]
     </pre>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  Here's another
+  <div id="mermaid_inject"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
     mermaid.initialize({ startOnLoad: true });
+  var graphdefinition = 'graph td a[client] --> b[load balancer]';
+  var graph = mermaid.mermaidAPI.render('mermaid_inject', graphdefinition, document.getelementbyid('mermaid_inject'));
   </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="myscript.js"></script>
 </body>
 
