@@ -4,6 +4,10 @@ $(document).click(function(event) {
     if (element.length > 0) {
         node = element[0].id.split('-')[1]
         console.log(node)
+        document.getElementById("node").innerHTML = node
         }
 });
 
+function updateState() {
+    document.getElementById("state").innerHTML = document.getElementById("state_select").value
+}
