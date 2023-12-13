@@ -17,10 +17,13 @@ $("#state_select").change(function () {
 mermaid.initialize({ startOnLoad: false });
 const drawDiagram = async function () {
   const element = document.querySelector('#graph');
-
   // Read from file
-  const response = await fetch('graph.txt');
-  const graphDefinition = await response.text();
+  const response = await fetch('graph.txt')
+  const graphText = await response.text();
+  const graphDefinition = graphText;
+  
+  const nodeSet = new Set(graphText.split('\n').slice(2).flatMap(text => text.split(' --> ')));
+  console.log(nodeSet);
 
   const { svg } = await mermaid.render('mySvgId', graphDefinition);
   element.innerHTML = svg;
