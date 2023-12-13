@@ -8,9 +8,9 @@ $(document).click(function (event) {
   };
 });
 
-$("#state_select").change(function(){
+$("#state_select").change(function () {
   var selectedState = this.value;
-  document.getElementById("state").innerHTML =  selectedState;
+  document.getElementById("state").innerHTML = selectedState;
 });
 
 // https://github.com/mermaid-js/mermaid/issues/2162 
@@ -21,7 +21,7 @@ const drawDiagram = async function () {
   // Read from file
   const response = await fetch('graph.txt');
   const graphDefinition = await response.text();
-  
+
   const { svg } = await mermaid.render('mySvgId', graphDefinition);
   element.innerHTML = svg;
 };
