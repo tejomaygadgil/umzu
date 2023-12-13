@@ -1,29 +1,36 @@
-var http = require('http');
-var fs = require('fs');
-var path = require('path');
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
 
-const PORT=8080; 
+const app = express();
+const PORT = 8080;
 
-http.createServer(function(request, response) {  
-    var filePath = '.' + request.url;
-    if (filePath == './')
-        filePath = './index.html';
+app.use(express.static(__dirname));
 
-    var extname = String(path.extname(filePath)).toLowerCase();
-    var mimeTypes = {
+app.get('/', (req, res) => {
+    let filePath = '.' + req.url;
+    if (filePath === './') filePath = './index.html';
+
+    const extname = String(path.extname(filePath)).toLowerCase();
+    const mimeTypes = {
         '.html': 'text/html',
         '.js': 'application/javascript',
         '.css': 'text/css',
     };
 
-    var contentType = mimeTypes[extname] || 'application/octet-stream';
+    const contentType = mimeTypes[extname] || 'application/octet-stream';
 
-    fs.readFile(filePath, function(error, content) {
+    fs.readFile(filePath, (error, content) => {
         if (error) {
-        }
-        else {
-            response.writeHead(200, { 'Content-Type': contentType });
-            response.end(content, 'utf-8');
+            res.status(500).send('Internal Server Error');
+        } else {
+            res.writeHead(200, { 'Content-Type': contentType });
+            res.end(content, 'utf-8');
         }
     });
-}).listen(PORT);
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
