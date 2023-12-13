@@ -9,9 +9,9 @@
 </head>
 
 <body>
-  <label for="state" style="float:right">
+  <label for="state_select" style="float:right">
     State:&nbsp;
-    <select id="state_select" name="state_select" style="float:right" onchange="updateState()">
+    <select id="state_select" name="state_select" style="float:right">
       <option> Want to do </option>
       <option> Will do </option>
       <option> Doing </option>
@@ -19,34 +19,18 @@
       <option> History </option>
     </select>
   </label>
+
   <br></br>
 
-  <div id="node"></div>
-  <div id="state"></div>
-
   Here is one mermaid diagram:
-  <div id="graphDiv"></div>
+  <div id="graph"></div>
+
+  <br></br>
+
+  Node:&nbsp;<div id="node"></div>
+  State:&nbsp;<div id="state"></div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: false });
-    // Example of using the render function
-    const drawDiagram = async function () {
-      const element = document.querySelector('#graphDiv');
-      const graphDefinition = `
-          flowchart LR
-          A[Christmas] -->|Get money| B(Go shopping)
-          B --> C{Let me think}
-          C -->|One| D[Laptop]
-          C -->|Two| E[iPhone]
-          C -->|Three| F[fa:fa-car Car]
-        `;
-      const { svg } = await mermaid.render('d', graphDefinition);
-      element.innerHTML = svg;
-    };
-    await drawDiagram();
-  </script>
   <script type="module" src="myscript.js"></script>
 </body>
 
