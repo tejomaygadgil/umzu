@@ -22,10 +22,10 @@ const drawDiagram = async function () {
   const graphText = await response.text();
   const graphDefinition = graphText;
   
-  const nodeSet = new Set(graphText.split('\n').slice(2).flatMap(text => text.split(' --> ')));
+  const nodeSet = new Set(graphText.split('\n').flatMap(text => text.split(' --> ')));
   console.log(nodeSet);
 
-  const { svg } = await mermaid.render('mySvgId', graphDefinition);
+  const { svg } = await mermaid.render('mySvgId', 'flowchart LR\n\n' + graphDefinition);
   element.innerHTML = svg;
 };
 await drawDiagram();
