@@ -1,4 +1,3 @@
-
 $(document).click(function (event) {
   var element = $(event.target).parent().closest('.flowchart-label')
   if (element.length > 0) {

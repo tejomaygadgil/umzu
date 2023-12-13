@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="#">
   <title>Wozu</title>
 </head>
 
@@ -24,25 +25,29 @@
   <div id="state"></div>
 
   Here is one mermaid diagram:
-  <pre class="mermaid">
-            graph TD 
-            A[Client] --> B[Load Balancer] 
-            B --> C[Server1] 
-            B --> D[Server2]
-    </pre>
-
-  Here's another
-  <div id="mermaid_inject"></div>
-
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-  <script>
-    mermaid.initialize({ startOnLoad: true });
-  var graphdefinition = 'graph td a[client] --> b[load balancer]';
-  var graph = mermaid.mermaidAPI.render('mermaid_inject', graphdefinition, document.getelementbyid('mermaid_inject'));
-  </script>
+  <div id="graphDiv"></div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="myscript.js"></script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: false });
+    // Example of using the render function
+    const drawDiagram = async function () {
+      const element = document.querySelector('#graphDiv');
+      const graphDefinition = `
+          flowchart LR
+          A[Christmas] -->|Get money| B(Go shopping)
+          B --> C{Let me think}
+          C -->|One| D[Laptop]
+          C -->|Two| E[iPhone]
+          C -->|Three| F[fa:fa-car Car]
+        `;
+      const { svg } = await mermaid.render('d', graphDefinition);
+      element.innerHTML = svg;
+    };
+    await drawDiagram();
+  </script>
+  <script type="module" src="myscript.js"></script>
 </body>
 
 </html>
