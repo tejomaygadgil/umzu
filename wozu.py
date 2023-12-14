@@ -1,9 +1,11 @@
 states = [
+    "want to do",
     "will do",
     "doing",
 ]
 
 colors = [
+    "#4CBB17", # Green
     "#0047AB", # Blue
     "#EE4B2B", # Red
 ]
@@ -81,7 +83,10 @@ def read_links():
     return text, nodes
 
 
-if __name__ == "__main__":
+def generate_html():
+    """
+    Generate mermaid HTML file.
+    """
 
     # Read text files
     graph_text, graph_nodes = read_graph()
@@ -129,6 +134,5 @@ if __name__ == "__main__":
 
     html = "\n".join(above + graph_text + state_text + links_text + below)
     
-    # Export
-    with open("index.html", "w") as f:
-        f.write(html)
+    return html
+
