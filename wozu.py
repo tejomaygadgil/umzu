@@ -5,12 +5,13 @@ states = [
 ]
 
 colors = [
-    "#4CBB17", # Green
-    "#0047AB", # Blue
-    "#EE4B2B", # Red
+    "#4CBB17",  # Green
+    "#0047AB",  # Blue
+    "#EE4B2B",  # Red
 ]
 
 state_to_color = dict(zip(states, colors))
+
 
 def read_file(file_path):
     """
@@ -20,6 +21,7 @@ def read_file(file_path):
         text = f.read().splitlines()
 
     return text
+
 
 def read_graph():
     """
@@ -31,11 +33,12 @@ def read_graph():
     for i, line in enumerate(text):
         if line:
             if line[0] != "#":  # Ignore comments
-                line_nodes = [node.strip() for node in line.split(' --> ')]
+                line_nodes = [node.strip() for node in line.split(" --> ")]
                 assert len(line_nodes) == 2, f"Malformed: line {i}, '{line}"
                 nodes.update(line_nodes)
 
     return text, nodes
+
 
 def read_state():
     """
@@ -63,20 +66,20 @@ def read_state():
 
     return states_map, nodes
 
+
 def read_links():
     """
     Read links.txt and return states and nodes.
     """
     raw_text = read_file("links.txt")
 
-    current_state = None
     nodes = set()
     text = list()
     for i, line in enumerate(raw_text):
         if line:
             if line[0] != "#":
-                assert ': ' in line, f"Malformed link: line {i}, 'f{line}'"
-                node, link = [string.strip() for string in line.split(': ')]
+                assert ": " in line, f"Malformed link: line {i}, 'f{line}'"
+                node, link = [string.strip() for string in line.split(": ")]
                 text.append(f'click {node} "{link}"')
                 nodes.add(node)
 
@@ -97,7 +100,8 @@ def generate_html():
     nodes = sorted(set.union(*[graph_nodes, state_nodes, links_nodes]))
 
     # Create HTML
-    above = ["""
+    above = [
+        """
 <!doctype html>
 <html lang="en">
 
@@ -112,18 +116,29 @@ def generate_html():
   <div id="graph" class="mermaid">
     flowchart LR
     
-    """]
+    """
+    ]
 
-    below = ["""
+    below = [
+        """
 </div>
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
     mermaid.initialize({ startOnLoad: true });
   </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.on('file_updated', function() {
+            location.reload();
+        });
+    </script>
 </body>
 
 </html>
-    """]
+    """
+    ]
 
     state_text = []
     for state, nodes in states.items():
@@ -133,6 +148,5 @@ def generate_html():
             state_text.append(f"style {node} color:#FFFFFF")
 
     html = "\n".join(above + graph_text + state_text + links_text + below)
-    
-    return html
 
+    return html
