@@ -1,17 +1,45 @@
-![](wozu.png)
+# Wozu 🤔
 
-# Wozu
-Stay organized by representing your work as a _graph_. This approach helps you stay focused and discover relationships between tasks.
+Manage a project, develop a recipe, organize your inner thoughts, or plan a party with Wozu.
 
-# How to use
-|File|Description|
+<img src="wozu.png" width="700">
+
+## Basic concept
+
+All human activity is composed of tasks that depend on one another.
+
+Therefore, in Wozu you can do three things:
+
+- Link tasks together
+- Focus on tasks (Kanban)
+- Embed URLs in tasks
+
+This simple feature set encourages fast iteration and the exploration of ideas, not tooling.
+
+## How to use
+
+1. Fill out:
+   
+|File|Example|
 |---|---|
-|`graph.txt`|Chain task A to task B by writing `a --> b`.|
-|`todo.txt`|Color-code nodes under the headers `Want to do` (green), `Will do` (blue), and `Doing` (red).|
-|`links.txt`|Writing `a: somewebsite.com/link` will create a hyperlink for node A.|
+|`graph.txt`|`a --> b`|
+|`todo.txt`|`Want to do:` (green)<br>`c`<br>`Will do:` (blue)<br>`b`<br>`Doing:` (red)<br>`a`|
+|`links.txt`|`a: somesite.com.com/someplace`|
 
-1. Fill out these files.
-2. Run `python server.py` to open a tab you can keep pinned in your browser.
-3. Modify the text files to see changes rendered immediately!
+2. Run `python server.py` to start UI.
+3. Iterate to see changes rendered immediately.
 
-**Use this workflow to explore connections between nodes and discover the shape your own system!**
+## Some tips
+
+- Adjust around until the graph look pretty. This will force you to draw useful connections.
+- Use separate files to track different things, or put everything in one big graph. (It's really up to you, but I prefer the latter)
+- You can use version control (Git) to back up your changes!
+- You can embed graphs within each other. [TODO]
+
+## On the name
+
+Wozu is German for "for what", or "in order to." 
+
+All tasks are "for" something else so the name seemed fitting.
+
+Plus I like the sound (woe-tsu).
