@@ -14,7 +14,10 @@ def monitor_file():
 
     while True:
         for file in files:
-            current_modified_time = os.path.getmtime(file)
+            try:
+                current_modified_time = os.path.getmtime(file)
+            except FileNotFoundError:
+                pass
             if current_modified_time > last_modified_times[file]:
                 last_modified_times[file] = current_modified_time
                 socketio.emit("file_updated", {"file": file}, namespace="/")
