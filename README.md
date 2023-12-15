@@ -6,28 +6,28 @@ Manage a project, develop a recipe, organize your inner thoughts, or plan a part
 
 ## Basic concept
 
-Everything in life is composed of tasks that depend on one another.
+Everything in life can be decomposed into tasks that depend on one another.
 
-Therefore, in Wozu you can do three things:
+Accordingly, Wozu allows you to do three things:
 
 - Link tasks together
-- Focus on tasks (Kanban)
-- Embed URLs in tasks
+- Focus on specific tasks (Kanban)
+- Embed URLs into tasks
 
-This simple feature set encourages fast iteration and the exploration of ideas, not tooling.
+Carefully selected, these features encourage fast iteration and the exploration of ideas, not tooling.
 
 ## How to use
 
-1. Fill out:
+1. Supply the following:
    
 |File|Example|
 |---|---|
 |`graph.txt`|`a --> b`<br>`b --> c`|
-|`todo.txt`|`Want to do:` (green)<br>`c`<br>`Will do:` (blue)<br>`b`<br>`Doing:` (red)<br>`a`|
-|`links.txt`|`a: somesite.com.com/someplace`|
+|`todo.txt` (optional)|`Want to do:` (green)<br>`c`<br>`Will do:` (blue)<br>`b`<br>`Doing:` (red)<br>`a`|
+|`links.txt` (optional)|`a: somesite.com.com/someplace`|
 
 2. Run `python server.py` to start the UI.
-3. Iterate to see changes rendered immediately.
+3. Iterate! Changes render immediately.
 
 ## Some tips
 
@@ -40,6 +40,6 @@ This simple feature set encourages fast iteration and the exploration of ideas, 
 
 Wozu is German for "for what", or "in order to." 
 
-The name seems fitting as all tasks are "for" something else. 
+This seems appropriate, as all tasks are "for" something else. 
 
-Plus I like the sound (woe-tsu).
+Plus it sounds nice: _woe-tsu_.
