@@ -1,3 +1,4 @@
+import webbrowser
 from flask import Flask
 from flask_socketio import SocketIO
 import os
@@ -30,7 +31,10 @@ def index():
     html = wozu.generate_html()
     return html
 
+def open_browser():
+    webbrowser.open_new("http://127.0.0.1:5000/")
 
 if __name__ == "__main__":
     threading.Thread(target=monitor_file, daemon=True).start()
+    threading.Timer(1, open_browser).start()
     socketio.run(app, host="127.0.0.1", port=5000)
