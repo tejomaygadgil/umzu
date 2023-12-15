@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_socketio import SocketIO
 import os
+import time
 import threading
 import wozu
 
@@ -13,6 +14,7 @@ def monitor_file():
     last_modified_times = {file: os.path.getmtime(file) for file in files}
 
     while True:
+        time.sleep(5)
         for file in files:
             try:
                 current_modified_time = os.path.getmtime(file)
