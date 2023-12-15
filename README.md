@@ -32,7 +32,7 @@ This simple feature set encourages fast iteration and the exploration of ideas, 
 ## Some tips
 
 - Adjust around until the graph look pretty. This will force you to draw useful connections.
-- Use separate files to track different things, or put everything in one big graph. (It's really up to you, but I prefer the latter)
+- Use separate files to track different things, or put everything in one big graph.
 - You can use version control (Git) to back up your changes!
 - You can embed graphs within each other. [TODO]
 
