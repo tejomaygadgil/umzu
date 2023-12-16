@@ -6,15 +6,15 @@ Manage a project, develop a recipe, organize your inner thoughts, or plan a part
 
 ## Basic concept
 
-Everything in life can be decomposed into tasks that depend on one another.
+Everything can be decomposed into tasks that depend on each other.
 
-Accordingly, Wozu allows you to do three things:
+Accordingly, in Wozu you can:
 
 - Link tasks together
 - Focus on specific tasks (Kanban)
 - Embed URLs into tasks
 
-Carefully selected, these features encourage fast iteration and the exploration of ideas, not tooling.
+These limited features encourage fast iteration and the exploration of ideas, not tooling.
 
 ## How to use
 
@@ -23,8 +23,8 @@ Carefully selected, these features encourage fast iteration and the exploration 
 |File|Example|
 |---|---|
 |`graph.txt`|`a --> b`<br>`b --> c`|
-|`todo.txt` (optional)|`Want to do:` (green)<br>`c`<br>`Will do:` (blue)<br>`b`<br>`Doing:` (red)<br>`a`|
-|`links.txt` (optional)|`a: somesite.com.com/someplace`|
+|`todo.txt`|`Want to do:` (green)<br>`c`<br>`Will do:` (blue)<br>`b`<br>`Doing:` (red)<br>`a`|
+|`links.txt`|`a: somesite.com.com/someplace`|
 
 2. Run `python server.py` to start the UI.
 3. Iterate! Changes render immediately.
