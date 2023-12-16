@@ -15,7 +15,7 @@ def monitor_file():
     last_modified_times = {file: os.path.getmtime(file) for file in files}
 
     while True:
-        time.sleep(5)
+        time.sleep(3)
         for file in files:
             try:
                 current_modified_time = os.path.getmtime(file)
