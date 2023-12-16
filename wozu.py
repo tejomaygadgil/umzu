@@ -147,6 +147,10 @@ def generate_html():
             state_text.append(f"style {node} fill:{color}")
             state_text.append(f"style {node} color:#FFFFFF")
 
+    # Color URL text
+    for node in links_nodes:
+        state_text.append(f"style {node} color:#0000EE")
+        
     html = "\n".join(above + graph_text + state_text + links_text + below)
 
     return html
