@@ -1,12 +1,10 @@
 # Wozu 🤔
 
-Manage a project, develop a recipe, organize your inner thoughts, or plan a party with Wozu.
-
 <img src="wozu.png" width="700">
 
-## Basic concept
+## Basic idea
 
-Everything can be decomposed into tasks that depend on each other.
+Everything in life can be decomposed into tasks that depend on each other.
 
 Accordingly, in Wozu you can:
 
