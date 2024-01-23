@@ -38,6 +38,4 @@ These limited features encourage fast iteration and the exploration of ideas, no
 
 Wozu is German for "for what", or "in order to." 
 
-This seems appropriate, as all tasks are "for" something else. 
-
 Plus it sounds nice: _woe-tsu_.
